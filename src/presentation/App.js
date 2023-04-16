@@ -1,4 +1,4 @@
-import { render, createElement } from "./React.js";
+import { render, createElement } from "../core/React.js";
 
 // const virtualDom = {
 //   tag: "p",
