@@ -37,7 +37,8 @@ const virtualDom = createElement(
     createElement("li", { style: "color: blue" }, "세번째 아이템")
   ),
   test(),
-  createElement("img", { src: `${testImg}` }, "")
+  createElement("img", { src: `${testImg}` }),
+  createElement("div")
 );
 
 render(virtualDom, document.querySelector("#root"));

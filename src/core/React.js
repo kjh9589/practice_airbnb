@@ -22,6 +22,9 @@ const render = (virtualDom, container) => {
 };
 
 const createElement = (tag, props, ...children) => {
+  props = props || {};
+  children = children || [];
+
   return { tag, props, children };
 };
 
