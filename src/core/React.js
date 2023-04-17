@@ -21,6 +21,7 @@ const render = (virtualDom, container) => {
   container.appendChild(createDom(virtualDom));
 };
 
+// react의 태그
 const createElement = (tag, props, ...children) => {
   props = props || {};
   children = children || [];
