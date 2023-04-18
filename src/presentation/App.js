@@ -1,5 +1,8 @@
-import { render, createElement } from "../core/React.js";
+import { render, createElement } from "../core/react.js";
 import { getPicsumImages } from "../network/network.js";
+import Image, { ImageType } from "./components/common/Image.js";
+import Text, { TextColor, TextType } from "./components/common/Text.js";
+import HorizontalImageText from "./components/items/HorizontalImageText.js";
 
 // const virtualDom = {
 //   tag: "p",
@@ -29,7 +32,6 @@ const test = () => {
       );
     });
 
-    console.log(elements)
     render(elements, document.querySelector("#here"));
   });
   return createElement("div", { id: "here" });
@@ -40,9 +42,8 @@ const test2 = () => {
     style: `background: black; width: 100px; height: 100px`,
   });
 
-  render(test, document.querySelector("#here"))
+  render(test, document.querySelector("#here"));
 };
-
 
 const testImg =
   "https://cdn.pixabay.com/photo/2023/04/03/11/45/water-7896610_640.jpg";
@@ -64,8 +65,20 @@ const virtualDom = createElement(
   ),
   test(),
   createElement("img", { src: `${testImg}` }),
+  Image(
+    ImageType.ic_300,
+    "https://cdn.pixabay.com/photo/2023/04/03/11/45/water-7896610_640.jpg"
+  ),
+  Text(TextType.text_16, "테에스으트", TextColor._FF385C),
+  HorizontalImageText(
+    ImageType.ic_24,
+    "https://cdn.pixabay.com/photo/2023/04/03/11/45/water-7896610_640.jpg",
+    TextType.text_12,
+    TextColor.black,
+    "거미 기억해줘요 내 모든 날과 그때를"
+  )
 );
 
 render(virtualDom, document.querySelector("#root"));
 
-test2()
+test2();
