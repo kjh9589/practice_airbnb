@@ -7,7 +7,8 @@ const HorizontalImageText = (
   imageUri,
   textType,
   textColor,
-  text
+  text,
+  space = 10
 ) => {
   return createElement(
     "div",
@@ -16,6 +17,10 @@ const HorizontalImageText = (
       "div",
       { style: `display: flex; align-items: center` },
       Image(imageType, imageUri),
+      createElement(
+        "div",
+        {style: `display: inline-block; width: ${space}px`},
+      ),
       Text(textType, text, textColor)
     )
   );
