@@ -3,6 +3,7 @@ import { getPicsumImages } from "../network/network.js";
 import Image, { ImageType } from "./components/common/Image.js";
 import Text, { TextColor, TextType } from "./components/common/Text.js";
 import HorizontalImageText from "./components/items/HorizontalImageText.js";
+import VerticalImageText from "./components/items/VerticalImageText.js";
 
 // const virtualDom = {
 //   tag: "p",
@@ -76,6 +77,13 @@ const virtualDom = createElement(
     TextType.text_12,
     TextColor.black,
     "거미 기억해줘요 내 모든 날과 그때를"
+  ),
+  VerticalImageText(
+    ImageType.ic_24,
+    "https://cdn.pixabay.com/photo/2023/04/03/11/45/water-7896610_640.jpg",
+    TextType.text_12,
+    TextColor.black,
+    "듣고 있나요?"
   )
 );
 
