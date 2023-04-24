@@ -1,44 +1,50 @@
 import { createElement } from "../../../core/react.js";
 
-const Image_16 = (uri) => {
+const Image_16 = (uri, callback) => {
   return createElement("img", {
     src: `${uri}`,
     class: "ic-image-16",
+    onclick: callback,
   });
 };
 
-const Image_24 = (uri) => {
+const Image_24 = (uri, callback) => {
   return createElement("img", {
     src: `${uri}`,
     class: "ic-image-24",
+    onclick: callback,
   });
 };
 
-const Image_30 = (uri) => {
+const Image_30 = (uri, callback) => {
   return createElement("img", {
     src: `${uri}`,
     class: "ic-image-30",
+    onclick: callback,
   });
 };
 
-const Image_32 = (uri) => {
+const Image_32 = (uri, callback) => {
   return createElement("img", {
     src: `${uri}`,
     class: "ic-image-32",
+    onclick: callback,
   });
 };
 
-const Image_40 = (uri) => {
+const Image_40 = (uri, callback) => {
   return createElement("img", {
     src: `${uri}`,
     class: "ic-image-40",
+    onclick: callback,
   });
 };
 
-const Image_300 = (uri) => {
+const Image_300 = (uri, callback) => {
   return createElement("img", {
     src: `${uri}`,
     class: "ic-image-300",
+    onClick: callback,
   });
 };
 
@@ -60,7 +66,8 @@ const ImageType = {
   ic_300: "ic_300",
 };
 
-const generateImage = (map) => (type, uri) => map[type](uri);
+const generateImage = (map) => (type, uri, callback) =>
+  map[type](uri, callback);
 
 const Image = generateImage(imageMap);
 

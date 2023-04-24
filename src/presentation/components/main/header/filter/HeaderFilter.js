@@ -24,12 +24,12 @@ const HeaderFilter = () => {
         : "",
       HeaderSlider(),
       isRightVisible
-        ? Image(ImageType.ic_24, "../../../../../../assets/arrow_forward.svg")
+        ? Image(ImageType.ic_24, "../../../../../../assets/arrow_forward.svg", test)
         : ""
     ),
     createElement(
       "div",
-      { class: "main-filter-button" },
+      { class: "main-filter-button"},
       HorizontalImageText(
         ImageType.ic_16,
         "../../../../../../assets/menu.svg",
