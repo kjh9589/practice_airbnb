@@ -7,7 +7,16 @@ const createDom = (node) => {
 
   // props 처리
   Object.entries(node.props).forEach(([key, value]) => {
-    element.setAttribute(key, value);
+    if (key.startsWith("on")) {
+      /*
+       props의 key가 "on"으로 시작하는지를 확인하고, 이벤트 리스너를 등록
+       이를 위해 startsWith 함수를 사용하여 "on"으로 시작하는 key를 찾아내고, 
+       addEventListener 함수를 사용하여 해당 이벤트에 대한 콜백 함수를 등록
+      */
+      element.addEventListener(key.substring(2), value);
+    } else {
+      element.setAttribute(key, value);
+    }
   });
 
   // 재귀로 구현 => depth 모름
