@@ -1,27 +1,45 @@
 import { createElement } from "../../../core/react.js";
 
 const Image_16 = (uri) => {
-  return createElement("img", { src: `${uri}`, class: "ic-image-16" });
+  return createElement("img", {
+    src: `${uri}`,
+    class: "ic-image-16",
+  });
 };
 
 const Image_24 = (uri) => {
-  return createElement("img", { src: `${uri}`, class: "ic-image-24" });
+  return createElement("img", {
+    src: `${uri}`,
+    class: "ic-image-24",
+  });
 };
 
 const Image_30 = (uri) => {
-  return createElement("img", { src: `${uri}`, class: "ic-image-30" });
+  return createElement("img", {
+    src: `${uri}`,
+    class: "ic-image-30",
+  });
 };
 
 const Image_32 = (uri) => {
-  return createElement("img", { src: `${uri}`, class: "ic-image-32" });
+  return createElement("img", {
+    src: `${uri}`,
+    class: "ic-image-32",
+  });
 };
 
 const Image_40 = (uri) => {
-  return createElement("img", { src: `${uri}`, class: "ic-image-40" });
+  return createElement("img", {
+    src: `${uri}`,
+    class: "ic-image-40",
+  });
 };
 
 const Image_300 = (uri) => {
-  return createElement("img", { src: `${uri}`, class: "ic-image-300" });
+  return createElement("img", {
+    src: `${uri}`,
+    class: "ic-image-300",
+  });
 };
 
 const imageMap = {
