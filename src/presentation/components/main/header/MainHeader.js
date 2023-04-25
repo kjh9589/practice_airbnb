@@ -5,7 +5,7 @@ import HeaderTitle from "./title/HeaderTitle.js";
 const MainHeader = () => {
   return createElement(
     "div",
-    { class: "main-header" },
+    { id: "main-header" },
     HeaderTitle(),
     HeaderFilter()
   );

@@ -1,0 +1,16 @@
+.grid-item {
+  position: relative;
+  display: inline-block;
+}
+
+.grid-item-favorite {
+  position: absolute;
+  right: 10px;
+  top: 10px
+}
+
+.grid-item-image {
+}
+
+.grid-item-description {
+}
