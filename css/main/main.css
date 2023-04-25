@@ -8,11 +8,12 @@ body {
   width: 100vw;
 }
 
-.main-header {
+#main-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  background-color: white;
 }
 
 .main-header-title {
@@ -84,18 +85,18 @@ body {
   margin-left: 10px;
 }
 
-.main-body {
-  padding-top: 20%;
-  padding-bottom: 10%;
+#main-body {
+  height: 100vh;
 }
 
-.main-footer {
+#main-footer {
   position: fixed;
   padding: 1vh 4vw;
   bottom: 0;
   left: 0;
   right: 0;
   border-top: 1px solid #eaeaea;
+  background-color: white;
 }
 
 .main-footer-info {

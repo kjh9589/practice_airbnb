@@ -4,7 +4,7 @@ import Text, { TextType } from "../../common/Text.js";
 import FooterInfo from "./info/FooterInfo.js";
 
 const MainFooter = () => {
-  return createElement("div", { class: "main-footer" }, 
+  return createElement("div", { id: "main-footer" }, 
   FooterInfo(),
   Text(TextType.text_12, footerNotice));
 };

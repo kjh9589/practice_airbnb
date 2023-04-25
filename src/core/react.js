@@ -30,6 +30,10 @@ const render = (virtualDom, container) => {
   container.appendChild(createDom(virtualDom));
 };
 
+const reRender = (virtualDom, container) => {
+  container.replaceChildren(createDom(virtualDom));
+}
+
 // react의 태그
 const createElement = (tag, props, ...children) => {
   props = props || {};
@@ -38,4 +42,4 @@ const createElement = (tag, props, ...children) => {
   return { tag, props, children };
 };
 
-export { createDom, render, createElement };
+export { createDom, render, createElement, reRender };
