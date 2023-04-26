@@ -5,10 +5,15 @@ import { ImageType } from "./components/common/Image.js";
 import { TextColor, TextType } from "./components/common/Text.js";
 import VerticalImageText from "./components/items/VerticalImageText.js";
 import { filterArr } from "./components/main/header/filter/HeaderSlider.js";
+import { getPicsumImages } from "../network/network.js";
+import GridItem from "./components/items/GirdItem.js";
+import { GRID_ITEM_SIZE } from "../constants/constants.js";
 
 const App = MainContainer();
 
 render(App, document.querySelector("#root"));
+
+let page = 1;
 
 window.onload = function () {
   const elementWidth = document.getElementById("header-slider").offsetWidth;
@@ -34,10 +39,35 @@ window.onload = function () {
   const headerHeight = document.getElementById("main-header").offsetHeight;
   const footerHeight = document.getElementById("main-footer").offsetHeight;
 
-  document.getElementById("main-body").style.paddingTop = 
-    `${headerHeight}px`;
-  document.getElementById("main-body").style.paddingBottom = 
-    `${footerHeight}px`;
+  document.getElementById("main-body").style.paddingTop = `${
+    Math.ceil((headerHeight * 100) / window.innerHeight)
+  }vh`;
+  document.getElementById("main-body").style.paddingBottom = `${
+    Math.ceil((footerHeight * 100) / window.innerHeight)
+  }vh`;
+
+  const grid = document.querySelector("#main-body");
+  const gridColumns = window.innerWidth;
+  grid.style.gridTemplateColumns = `repeat(${parseInt(
+    gridColumns / GRID_ITEM_SIZE
+  )}, 1fr)`;
+
+  getPicsumImages(page, 100).then((res) => {
+    res.forEach((item) => {
+      render(GridItem(
+        [
+          item.download_url,
+        ],
+        item.author,
+       ( Math.random() * 4 + 1).toFixed(1),
+        `가로: ${item.width}`,
+        `세로: ${item.height}`,
+        `ID: ${item.id}`
+      ), document.querySelector("#main-body"));
+    });
+    
+  });
+  page += 1
 };
 
 window.addEventListener("resize", function () {
@@ -62,6 +92,50 @@ window.addEventListener("resize", function () {
   });
 
   reRender(filterArr, document.querySelector("#header-slider"));
+
+  const headerHeight = document.getElementById("main-header").offsetHeight;
+  const footerHeight = document.getElementById("main-footer").offsetHeight;
+
+  document.getElementById("main-body").style.paddingTop = `${
+    Math.ceil((headerHeight * 100) / window.innerHeight)
+  }vh`;
+  document.getElementById("main-body").style.paddingBottom = `${
+    Math.ceil((footerHeight * 100) / window.innerHeight)
+  }vh`;
+
+  const grid = document.querySelector("#main-body");
+  const gridColumns = window.innerWidth;
+  grid.style.gridTemplateColumns = `repeat(${parseInt(
+    gridColumns / 300
+  )}, 1fr)`;
 });
 
-// test2();
+window.addEventListener("scroll", () => {
+  /*
+  위 코드에서는 scroll 이벤트를 추가하고, scrollHeight와 innerHeight를 사용하여 스크롤 가능한 전체 높이와 창 높이를 가져오고, 
+  scrollY를 사용하여 현재 스크롤 위치를 가져옵니다.
+
+  그런 다음 Math.ceil() 함수를 사용하여 현재 스크롤 위치를 올림하여 끝에 도달한 경우를 확인합니다. 
+  스크롤 위치가 스크롤 가능한 높이와 정확하게 일치하지 않을 수 있으므로, Math.ceil() 함수를 사용하여 스크롤 위치를 올립니다.
+  */
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY;
+  if (Math.ceil(scrolled) === scrollable) {
+    getPicsumImages(page).then((res) => {
+      res.forEach((item) => {
+        render(GridItem(
+          [
+            item.download_url,
+          ],
+          item.author,
+         ( Math.random() * 4 + 1).toFixed(1),
+          `가로: ${item.width}`,
+          `세로: ${item.height}`,
+          `ID: ${item.id}`
+        ), document.querySelector("#main-body"));
+      });
+      
+    });
+    page += 1
+  }
+});

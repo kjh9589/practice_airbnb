@@ -7,11 +7,32 @@
 .grid-item-favorite {
   position: absolute;
   right: 10px;
-  top: 10px
+  top: 10px;
+  z-index: 1;
 }
 
 .grid-item-image {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+}
+
+.grid-item-left {
+  position: absolute;
+  left: 4px;
+}
+
+.grid-item-right {
+  position: absolute;
+  right: 4px;
 }
 
 .grid-item-description {
+
+}
+
+.grid-item-description {
+  display: flex;
+  flex-direction: column;
 }
