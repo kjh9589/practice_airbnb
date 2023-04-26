@@ -40,10 +40,10 @@ const Image_40 = (uri, callback) => {
   });
 };
 
-const Image_260 = (uri, callback) => {
+const Image_280 = (uri, callback) => {
   return createElement("img", {
     src: `${uri}`,
-    class: "ic-image-260",
+    class: "ic-image-280",
     onClick: callback,
   });
 };
@@ -54,7 +54,7 @@ const imageMap = {
   ic_30: Image_30,
   ic_32: Image_32,
   ic_40: Image_40,
-  ic_260: Image_260,
+  ic_280: Image_280,
 };
 
 const ImageType = {
@@ -63,7 +63,7 @@ const ImageType = {
   ic_30: "ic_30",
   ic_32: "ic_32",
   ic_40: "ic_40",
-  ic_260: "ic_260",
+  ic_280: "ic_280",
 };
 
 const generateImage = (map) => (type, uri, callback) =>

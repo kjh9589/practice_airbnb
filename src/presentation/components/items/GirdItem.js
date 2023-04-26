@@ -19,13 +19,21 @@ const GridItem = (imgaeUris, author, rate, subtitle1, subtitle2, subtitle3) => {
     createElement(
       "div",
       { class: "grid-item-image" },
-      Image(ImageType.ic_24, "../../../../assets/arrow_back.svg"),
-      Image(ImageType.ic_260, imgaeUris[targetIdx]),
-      Image(ImageType.ic_24, "../../../../assets/arrow_forward.svg")
+      createElement(
+        "div",
+        { class: "grid-item-left" },
+        Image(ImageType.ic_24, "../../../../assets/arrow_back.svg")
+      ),
+      Image(ImageType.ic_280, imgaeUris[targetIdx]),
+      createElement(
+        "div",
+        { class: "grid-item-right" },
+        Image(ImageType.ic_24, "../../../../assets/arrow_forward.svg")
+      ),
     ),
     createElement(
       "div",
-      { class: "grid-item-description" },
+      { class: "grid-item-title" },
       Text(TextType.text_16, author),
       HorizontalImageText(
         ImageType.ic_16,
@@ -35,9 +43,13 @@ const GridItem = (imgaeUris, author, rate, subtitle1, subtitle2, subtitle3) => {
         `${rate}`
       )
     ),
-    Text(TextType.text_14, subtitle1, TextColor._717171),
-    Text(TextType.text_14, subtitle2, TextColor._717171),
-    Text(TextType.text_16, subtitle3, TextColor.black)
+    createElement(
+      "div",
+      { class: "grid-item-description" },
+      Text(TextType.text_14, subtitle1, TextColor._717171),
+      Text(TextType.text_14, subtitle2, TextColor._717171),
+      Text(TextType.text_16, subtitle3, TextColor.black)
+    )
   );
 };
 
