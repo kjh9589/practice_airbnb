@@ -39,12 +39,12 @@ window.onload = function () {
   const headerHeight = document.getElementById("main-header").offsetHeight;
   const footerHeight = document.getElementById("main-footer").offsetHeight;
 
-  document.getElementById("main-body").style.paddingTop = `${
-    Math.ceil((headerHeight * 100) / window.innerHeight)
-  }vh`;
-  document.getElementById("main-body").style.paddingBottom = `${
-    Math.ceil((footerHeight * 100) / window.innerHeight)
-  }vh`;
+  document.getElementById("main-body").style.paddingTop = `${Math.ceil(
+    (headerHeight * 100) / window.innerHeight
+  )}vh`;
+  document.getElementById("main-body").style.paddingBottom = `${Math.ceil(
+    (footerHeight * 100) / window.innerHeight
+  )}vh`;
 
   const grid = document.querySelector("#main-body");
   const gridColumns = window.innerWidth;
@@ -54,20 +54,26 @@ window.onload = function () {
 
   getPicsumImages(page, 100).then((res) => {
     res.forEach((item) => {
-      render(GridItem(
-        [
-          item.download_url,
-        ],
-        item.author,
-       ( Math.random() * 4 + 1).toFixed(1),
-        `가로: ${item.width}`,
-        `세로: ${item.height}`,
-        `ID: ${item.id}`
-      ), document.querySelector("#main-body"));
+      render(
+        GridItem(
+          [
+            item.download_url,
+            "https://cdn.pixabay.com/photo/2023/04/29/07/30/bengal-tiger-7957960__340.jpg",
+            "https://cdn.pixabay.com/photo/2022/09/30/12/56/cat-7489398__340.jpg",
+            "https://cdn.pixabay.com/photo/2023/03/11/20/24/animal-7845217__340.jpg",
+            "https://cdn.pixabay.com/photo/2023/03/07/18/07/chocolate-7836231__340.png",
+          ],
+          item.author,
+          (Math.random() * 4 + 1).toFixed(1),
+          `가로: ${item.width}`,
+          `세로: ${item.height}`,
+          `ID: ${item.id}`
+        ),
+        document.querySelector("#main-body")
+      );
     });
-    
   });
-  page += 1
+  page += 1;
 };
 
 window.addEventListener("resize", function () {
@@ -96,12 +102,12 @@ window.addEventListener("resize", function () {
   const headerHeight = document.getElementById("main-header").offsetHeight;
   const footerHeight = document.getElementById("main-footer").offsetHeight;
 
-  document.getElementById("main-body").style.paddingTop = `${
-    Math.ceil((headerHeight * 100) / window.innerHeight)
-  }vh`;
-  document.getElementById("main-body").style.paddingBottom = `${
-    Math.ceil((footerHeight * 100) / window.innerHeight)
-  }vh`;
+  document.getElementById("main-body").style.paddingTop = `${Math.ceil(
+    (headerHeight * 100) / window.innerHeight
+  )}vh`;
+  document.getElementById("main-body").style.paddingBottom = `${Math.ceil(
+    (footerHeight * 100) / window.innerHeight
+  )}vh`;
 
   const grid = document.querySelector("#main-body");
   const gridColumns = window.innerWidth;
@@ -123,19 +129,25 @@ window.addEventListener("scroll", () => {
   if (Math.ceil(scrolled) === scrollable) {
     getPicsumImages(page).then((res) => {
       res.forEach((item) => {
-        render(GridItem(
-          [
-            item.download_url,
-          ],
-          item.author,
-         ( Math.random() * 4 + 1).toFixed(1),
-          `가로: ${item.width}`,
-          `세로: ${item.height}`,
-          `ID: ${item.id}`
-        ), document.querySelector("#main-body"));
+        render(
+          GridItem(
+            [
+              item.download_url,
+              "https://cdn.pixabay.com/photo/2023/04/29/07/30/bengal-tiger-7957960__340.jpg",
+              "https://cdn.pixabay.com/photo/2022/09/30/12/56/cat-7489398__340.jpg",
+              "https://cdn.pixabay.com/photo/2023/03/11/20/24/animal-7845217__340.jpg",
+              "https://cdn.pixabay.com/photo/2023/03/07/18/07/chocolate-7836231__340.png",
+            ],
+            item.author,
+            (Math.random() * 4 + 1).toFixed(1),
+            `가로: ${item.width}`,
+            `세로: ${item.height}`,
+            `ID: ${item.id}`
+          ),
+          document.querySelector("#main-body")
+        );
       });
-      
     });
-    page += 1
+    page += 1;
   }
 });
