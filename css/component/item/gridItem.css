@@ -1,7 +1,6 @@
 .grid-item {
   position: relative;
   display: inline-block;
-  z-index: -1;
 }
 
 .grid-item-favorite {
@@ -28,8 +27,9 @@
   right: 4px;
 }
 
-.grid-item-description {
-
+.grid-item-title {
+  display: flex;
+  justify-content: space-between;
 }
 
 .grid-item-description {
